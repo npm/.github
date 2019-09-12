@@ -1,0 +1,12 @@
+# git #
+!.gitkeep
+!.gitignore
+
+# Docker #
+Dockerfile
+
+# JavaScript #
+node_modules
+
+# tmp #
+tmp

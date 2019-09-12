@@ -1,0 +1,15 @@
+---
+#####
+# https://github.com/actions/toolkit/blob/master/docs/container-action.md#define-metadata
+name: default
+description: default
+author: 'npm, Inc.'
+inputs:
+  regex: { default: '(.*)' }
+  subject: { default: 'default' }
+  exception: { default: null }
+  input: { default: '' }
+  token: { default: null }
+runs:
+  image: 'Dockerfile'
+  using: 'docker'

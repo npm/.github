@@ -1,0 +1,7 @@
+---
+#####
+# https://github.com/probot/semantic-pull-requests
+allowMergeCommits: false
+titleAndCommits: false
+commitsOnly: false
+titleOnly: true

@@ -1,0 +1,43 @@
+---
+#####
+# https://help.github.com/en/articles/events-that-trigger-workflows
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+# https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions
+# https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+name: issue
+on:
+  issues: {}
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toolkit label bug
+        uses: 'npm/github/actions/default@master'
+        with:
+          regex: '^(\[BUG\])'
+          subject: '${{ github.event.issue.title }}'
+          input: 'issues | addLabels | context.repo | issue_number:${{ github.event.issue.number }} | labels:[ "bug" ]'
+          token: '${{ secrets.GITHUB_TOKEN }}'
+      - name: toolkit label feature
+        uses: 'npm/github/actions/default@master'
+        with:
+          regex: '^(\[FEATURE\])'
+          subject: '${{ github.event.issue.title }}'
+          input: 'issues | addLabels | context.repo | issue_number:${{ github.event.issue.number }} | labels:[ "feature" ]'
+          token: '${{ secrets.GITHUB_TOKEN }}'
+      - name: toolkit label chore
+        uses: 'npm/github/actions/default@master'
+        with:
+          regex: '^(\[CHORE\])'
+          subject: '${{ github.event.issue.title }}'
+          input: 'issues | addLabels | context.repo | issue_number:${{ github.event.issue.number }} | labels:[ "chore" ]'
+          token: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: toolkit label question
+        uses: 'npm/github/actions/default@master'
+        with:
+          regex: '^(\[QUESTION\])'
+          subject: '${{ github.event.issue.title }}'
+          input: 'issues | addLabels | context.repo | issue_number:${{ github.event.issue.number }} | labels:[ "question" ]'
+          token: '${{ secrets.GITHUB_TOKEN }}'
