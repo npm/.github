@@ -15,7 +15,7 @@ repository:
   has_issues: true
   has_projects: true
   has_wiki: false
-  private: true
+  # private: true
 
 branches:
   - name: master
