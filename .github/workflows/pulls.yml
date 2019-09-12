@@ -1,0 +1,52 @@
+---
+#####
+# https://help.github.com/en/articles/events-that-trigger-workflows
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+# https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions
+# https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+name: pulls
+on:
+  pull_request: {}
+jobs:
+
+  default:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toolkit label bug
+        uses: 'npm/.github/actions/default@master'
+        with:
+          regex: '^(fix)(\([\w\-]+\))?(\:)'
+          subject: '${{ github.event.pull_request.title }}'
+          input: 'issues | addLabels | context.repo | issue_number:${{ github.event.pull_request.number }} | labels:[ "bug" ]'
+          token: '${{ secrets.GITHUB_TOKEN }}'
+      - name: toolkit label feature
+        uses: 'npm/.github/actions/default@master'
+        with:
+          regex: '^(feat)(\([\w\-]+\))?(\:)'
+          subject: '${{ github.event.pull_request.title }}'
+          input: 'issues | addLabels | context.repo | issue_number:${{ github.event.pull_request.number }} | labels:[ "feature" ]'
+          token: '${{ secrets.GITHUB_TOKEN }}'
+      - name: toolkit label chore
+        uses: 'npm/.github/actions/default@master'
+        with:
+          regex: '^(chore)(\([\w\-]+\))?(\:)'
+          subject: '${{ github.event.pull_request.title }}'
+          input: 'issues | addLabels | context.repo | issue_number:${{ github.event.pull_request.number }} | labels:[ "chore" ]'
+          token: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: toolkit assignees actor
+        uses: 'npm/.github/actions/default@master'
+        with:
+          input: 'issues | addAssignees | context.repo | issue_number:${{ github.event.pull_request.number }} | assignees:[ "${{ github.actor }}" ]'
+          token: '${{ secrets.GITHUB_TOKEN }}'
+
+  title-semantic-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toolkit validate title
+        uses: 'npm/.github/actions/default@master'
+        with:
+          regex: '^(fix|feat|chore)(\([\w\-]+\))?(\:)'
+          subject: '${{ github.event.pull_request.title }}'
+          exception: 'Pull Request title does not follow semantic commit format'
