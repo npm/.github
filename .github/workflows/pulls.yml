@@ -41,12 +41,12 @@ jobs:
           input: 'issues | addAssignees | context.repo | issue_number:${{ github.event.pull_request.number }} | assignees:[ "${{ github.actor }}" ]'
           token: '${{ secrets.GITHUB_TOKEN }}'
 
-  title-semantic-commit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: toolkit validate title
-        uses: 'npm/.github/actions/default@master'
-        with:
-          regex: '^(fix|feat|chore)(\([\w\-]+\))?(\:)'
-          subject: '${{ github.event.pull_request.title }}'
-          exception: 'Pull Request title does not follow semantic commit format'
+#   title-semantic-commit:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: toolkit validate title
+#         uses: 'npm/.github/actions/default@master'
+#         with:
+#           regex: '^(fix|feat|chore)(\([\w\-]+\))?(\:)'
+#           subject: '${{ github.event.pull_request.title }}'
+#           exception: 'Pull Request title does not follow semantic commit format'
