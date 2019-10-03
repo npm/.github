@@ -7,7 +7,23 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 name: pulls
 on:
-  pull_request: {}
+  pull_request:
+    types:
+      - 'opened'
+      - 'reopened'
+      - 'edited'
+      - 'closed'
+      - 'synchronize'
+      - 'ready_for_review'
+      - 'review_requested'
+      - 'review_request_removed'
+      - 'unassigned'
+      - 'assigned'
+      - 'unlabeled'
+      - 'labeled'
+      - 'unlocked'
+      - 'locked'
+
 jobs:
 
   default:
@@ -40,13 +56,3 @@ jobs:
         with:
           input: 'issues | addAssignees | context.repo | issue_number:${{ github.event.pull_request.number }} | assignees:[ "${{ github.actor }}" ]'
           token: '${{ secrets.GITHUB_TOKEN }}'
-
-#   title-semantic-commit:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: toolkit validate title
-#         uses: 'npm/github/actions/default@master'
-#         with:
-#           regex: '^(fix|feat|chore)(\([\w\-]+\))?(\:)'
-#           subject: '${{ github.event.pull_request.title }}'
-#           exception: 'Pull Request title does not follow semantic commit format'

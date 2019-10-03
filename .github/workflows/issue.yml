@@ -7,8 +7,26 @@
 # https://help.github.com/en/categories/automating-your-workflow-with-github-actions
 name: issue
 on:
-  issues: {}
+  issues:
+    types:
+      - 'opened'
+      - 'reopened'
+      - 'edited'
+      - 'closed'
+      - 'transferred'
+      - 'demilestoned'
+      - 'milestoned'
+      - 'unpinned'
+      - 'pinned'
+      - 'unassigned'
+      - 'assigned'
+      - 'unlabeled'
+      - 'labeled'
+      - 'unlocked'
+      - 'locked'
+
 jobs:
+
   default:
     runs-on: ubuntu-latest
     steps:
