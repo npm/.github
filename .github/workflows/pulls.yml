@@ -32,21 +32,21 @@ jobs:
       - name: toolkit label bug
         uses: 'npm/github/actions/default@master'
         with:
-          regex: '^(fix)(\([\w\-]+\))?(\:)'
+          regex: '^(fix)(\([\w\-]+\))?(\!)?(\:)'
           subject: '${{ github.event.pull_request.title }}'
           input: 'issues | addLabels | context.repo | issue_number:${{ github.event.pull_request.number }} | labels:[ "bug" ]'
           token: '${{ secrets.GITHUB_TOKEN }}'
       - name: toolkit label feature
         uses: 'npm/github/actions/default@master'
         with:
-          regex: '^(feat)(\([\w\-]+\))?(\:)'
+          regex: '^(feat)(\([\w\-]+\))?(\!)?(\:)'
           subject: '${{ github.event.pull_request.title }}'
           input: 'issues | addLabels | context.repo | issue_number:${{ github.event.pull_request.number }} | labels:[ "feature" ]'
           token: '${{ secrets.GITHUB_TOKEN }}'
       - name: toolkit label chore
         uses: 'npm/github/actions/default@master'
         with:
-          regex: '^(chore)(\([\w\-]+\))?(\:)'
+          regex: '^(chore)(\([\w\-]+\))?(\!)?(\:)'
           subject: '${{ github.event.pull_request.title }}'
           input: 'issues | addLabels | context.repo | issue_number:${{ github.event.pull_request.number }} | labels:[ "chore" ]'
           token: '${{ secrets.GITHUB_TOKEN }}'
