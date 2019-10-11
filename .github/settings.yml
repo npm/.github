@@ -38,12 +38,12 @@ branches:
 teams:
   - name: sre
     permission: admin
-  - name: security
-    permission: push
   - name: robot-write
-    permission: push
+    permission: admin
   - name: robot
     permission: pull
+  - name: security
+    permission: push
 
 labels:
 
