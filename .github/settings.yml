@@ -53,7 +53,9 @@ labels:
   - { color: 'C080FF', name: 'docs',      description: '' } # Light Purple
 
   - { color: '000000', name: 'question',  description: '' } # Black
+
   - { color: 'C00000', name: 'blocked',   description: '' } # Red
   - { color: 'DDDDDD', name: 'duplicate', description: '' } # Gray
   - { color: 'DDDDDD', name: 'invalid',   description: '' } # Gray
   - { color: 'DDDDDD', name: 'wontfix',   description: '' } # Gray
+  - { color: 'DDDDDD', name: 'released',  description: '' } # Gray
