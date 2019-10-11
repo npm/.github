@@ -1,0 +1,85 @@
+---
+#####
+# https://help.github.com/en/articles/events-that-trigger-workflows
+# https://help.github.com/en/articles/workflow-syntax-for-github-actions
+# https://help.github.com/en/articles/contexts-and-expression-syntax-for-github-actions
+# https://help.github.com/en/articles/software-in-virtual-environments-for-github-actions
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+name: debug
+on:
+  push:
+    branches: ['master']
+    tags: ['v[0-9]+.[0-9]+.[0-9]+']
+  pull_request:
+    types:
+      - 'opened'
+      - 'reopened'
+      - 'synchronize'
+
+jobs:
+
+  service:
+    timeout-minutes: 60
+    runs-on: ${{ matrix.machine }}
+    strategy:
+      matrix:
+        machine: ['ubuntu-latest']
+        container: ['alpine:latest']
+        node: ['10.x']
+    services:
+      default:
+        image: 'nginx:alpine'
+        ports: ['8080:80']
+    steps:
+      - name: checkout
+        uses: 'actions/checkout@v1'
+      # - name: docker compose up
+      #   run: 'docker-compose up -d'
+      # - name: service curl 8888
+      #   run: 'curl http://localhost:8888'
+      - name: service curl 8080
+        run: 'curl http://localhost:8080'
+
+  debug:
+    needs: ['service']
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: context echo runner
+        env: { CONTENT: '${{ toJson(runner) }}' }
+        run: 'echo $CONTENT'
+      - name: context echo github
+        env: { CONTENT: '${{ toJson(github) }}' }
+        run: 'echo $CONTENT'
+      - name: context echo secrets
+        env: { CONTENT: '${{ toJson(secrets) }}' }
+        run: 'echo $CONTENT'
+      - name: context echo job
+        env: { CONTENT: '${{ toJson(job) }}' }
+        run: 'echo $CONTENT'
+      - name: context echo strategy
+        env: { CONTENT: '${{ toJson(strategy) }}' }
+        run: 'echo $CONTENT'
+      - name: context echo matrix
+        env: { CONTENT: '${{ toJson(matrix) }}' }
+        run: 'echo $CONTENT'
+      - name: context echo steps
+        env: { CONTENT: '${{ toJson(steps) }}' }
+        run: 'echo $CONTENT'
+
+      - name: container ls $GITHUB_EVENT_PATH
+        with: { entrypoint: '/bin/sh', args: '-c "ls -la $GITHUB_EVENT_PATH"' }
+        uses: 'docker://alpine:latest'
+      - name: container ls $GITHUB_WORKSPACE
+        with: { entrypoint: '/bin/sh', args: '-c "ls -la $GITHUB_WORKSPACE"' }
+        uses: 'docker://alpine:latest'
+      - name: container ls $HOME
+        with: { entrypoint: '/bin/sh', args: '-c "ls -la $HOME"' }
+        uses: 'docker://alpine:latest'
+
+      - name: machine ls $GITHUB_EVENT_PATH
+        run: 'ls -la $GITHUB_EVENT_PATH'
+      - name: machine ls $GITHUB_WORKSPACE
+        run: 'ls -la $GITHUB_WORKSPACE'
+      - name: machine ls $HOME
+        run: 'ls -la $HOME'
