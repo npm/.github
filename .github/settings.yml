@@ -42,6 +42,8 @@ teams:
     permission: admin
   - name: robot
     permission: pull
+  - name: employees
+    permission: pull
   - name: security
     permission: push
 
