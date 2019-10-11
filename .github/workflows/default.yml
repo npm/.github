@@ -24,14 +24,19 @@ jobs:
       - name: checkout
         uses: 'actions/checkout@v1'
       - name: git setup
-        env: { GITHUB_SSHKEY: '${{ secrets.GITHUB_SSHKEY }}' }
+        env:
+          GITHUB_SSHKEY: '${{ secrets.GITHUB_SSHKEY }}'
         run: |
           mkdir -p "$HOME/.ssh" ; chmod 700 "$HOME/.ssh" ;
           ssh-keyscan -H "github.com" >> "$HOME/.ssh/known_hosts" ;
           echo "$GITHUB_SSHKEY" | base64 --decode > "$HOME/.ssh/id_rsa" ;
           chmod 600 $HOME/.ssh/* ;
       - name: npm install
+        env:
+          NODE_AUTH_TOKEN: '${{ secrets.NPM_TOKEN }}'
         run: 'npm ci'
       - name: npx release
-        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          NPM_TOKEN: '${{ secrets.NPM_TOKEN }}'
         run: 'npx semantic-release'
