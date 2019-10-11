@@ -36,14 +36,11 @@ branches:
         users: []
 
 teams:
-  - name: sre
-    permission: admin
-  - name: robot-write
-    permission: admin
-  - name: robot
-    permission: pull
-  - name: security
-    permission: push
+  - { name: 'sre',          permission: 'admin' }
+  - { name: 'robot-write',  permission: 'admin' }
+  - { name: 'robot',        permission: 'pull' }
+  - { name: 'employees',    permission: 'pull' }
+  - { name: 'security',     permission: 'push' }
 
 labels:
 
