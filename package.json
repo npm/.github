@@ -1,7 +1,7 @@
 {
   "license": "ISC",
   "version": "0.0.0",
-  "name": "@npm/github",
+  "name": "@npmcorp/github",
   "dependencies": {
     "@semantic-release/git": "7.0.16",
     "@semantic-release/github": "5.5.3",
