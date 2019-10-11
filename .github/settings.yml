@@ -44,37 +44,16 @@ teams:
 
 labels:
 
-  - color: '80C000' # Green
-    description: ''
-    name: feature
-  - color: 'FF8000' # Orange
-    description: ''
-    name: refactor
-  - color: 'C00000' # Red
-    description: ''
-    name: bug
-  - color: 'FFC000' # Yellow
-    description: ''
-    name: chore
-  - color: '00C0FF' # Light Blue
-    description: ''
-    name: ci
-  - color: '4080FF' # Blue
-    description: ''
-    name: cd
-  - color: 'C080FF' # Light Purple
-    description: ''
-    name: docs
+  - { color: '80C000', name: 'feature',   description: '' } # Green
+  - { color: 'FF8000', name: 'refactor',  description: '' } # Orange
+  - { color: 'C00000', name: 'bug',       description: '' } # Red
+  - { color: 'FFC000', name: 'chore',     description: '' } # Yellow
+  - { color: '00C0FF', name: 'ci',        description: '' } # Light Blue
+  - { color: '4080FF', name: 'cd',        description: '' } # Blue
+  - { color: 'C080FF', name: 'docs',      description: '' } # Light Purple
 
-  - color: '000000' # Black
-    description: ''
-    name: question
-  - color: '999999' # Gray
-    description: ''
-    name: duplicate
-  - color: '999999' # Gray
-    description: ''
-    name: invalid
-  - color: '999999' # Gray
-    description: ''
-    name: wontfix
+  - { color: '000000', name: 'question',  description: '' } # Black
+  - { color: 'C00000', name: 'blocked',   description: '' } # Red
+  - { color: 'DDDDDD', name: 'duplicate', description: '' } # Gray
+  - { color: 'DDDDDD', name: 'invalid',   description: '' } # Gray
+  - { color: 'DDDDDD', name: 'wontfix',   description: '' } # Gray
