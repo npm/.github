@@ -30,21 +30,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: toolkit label bug
-        uses: 'npm/github/actions/default@master'
+        uses: 'npm/.github/actions/default@master'
         with:
           regex: '^(fix)(\([\w\-]+\))?(\!)?(\:)'
           subject: '${{ github.event.pull_request.title }}'
           input: 'issues | addLabels | context.repo | issue_number:${{ github.event.pull_request.number }} | labels:[ "bug" ]'
           token: '${{ secrets.GITHUB_TOKEN }}'
       - name: toolkit label feature
-        uses: 'npm/github/actions/default@master'
+        uses: 'npm/.github/actions/default@master'
         with:
           regex: '^(feat)(\([\w\-]+\))?(\!)?(\:)'
           subject: '${{ github.event.pull_request.title }}'
           input: 'issues | addLabels | context.repo | issue_number:${{ github.event.pull_request.number }} | labels:[ "feature" ]'
           token: '${{ secrets.GITHUB_TOKEN }}'
       - name: toolkit label chore
-        uses: 'npm/github/actions/default@master'
+        uses: 'npm/.github/actions/default@master'
         with:
           regex: '^(chore)(\([\w\-]+\))?(\!)?(\:)'
           subject: '${{ github.event.pull_request.title }}'
@@ -52,7 +52,7 @@ jobs:
           token: '${{ secrets.GITHUB_TOKEN }}'
 
       - name: toolkit assignees actor
-        uses: 'npm/github/actions/default@master'
+        uses: 'npm/.github/actions/default@master'
         with:
           input: 'issues | addAssignees | context.repo | issue_number:${{ github.event.pull_request.number }} | assignees:[ "${{ github.actor }}" ]'
           token: '${{ secrets.GITHUB_TOKEN }}'

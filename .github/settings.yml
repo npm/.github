@@ -1,9 +1,9 @@
 ---
 #####
 # https://github.com/probot/settings#usage
-# _extends: 'github'
+# _extends: '.github'
 repository:
-  name: github
+  name: .github
   topics: 'cloud, devops, sre, github, actions, templates, probot'
   description: 'GitHub Automation > actions / templates / probot configurations > automated with GitHub actions'
   homepage: 'https://github.com/npm'
@@ -38,9 +38,9 @@ branches:
 teams:
   - { name: 'sre',          permission: 'admin' }
   - { name: 'robot-write',  permission: 'admin' }
-  - { name: 'robot',        permission: 'pull' }
-  - { name: 'employees',    permission: 'pull' }
-  - { name: 'security',     permission: 'push' }
+  - { name: 'robot',        permission: 'pull'  }
+  - { name: 'employees',    permission: 'pull'  }
+  - { name: 'eng',          permission: 'push'  }
 
 labels:
 

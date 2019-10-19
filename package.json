@@ -1,15 +1,15 @@
 {
   "license": "ISC",
   "version": "0.0.0",
-  "name": "@npmcorp/github",
+  "name": "@npmcorp/.github",
   "private": false,
   "dependencies": {
     "@semantic-release/git": "7.0.16",
-    "@semantic-release/github": "5.5.3",
+    "@semantic-release/github": "5.5.4",
     "@semantic-release/npm": "5.2.0",
     "@semantic-release/commit-analyzer": "6.3.0",
     "@semantic-release/release-notes-generator": "7.3.0",
-    "semantic-release": "15.13.24"
+    "semantic-release": "15.13.27"
   },
   "release": {
     "extends": "./npm.js"
