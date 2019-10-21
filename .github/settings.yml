@@ -4,7 +4,7 @@
 # _extends: '.github'
 repository:
   name: .github
-  topics: 'cloud, devops, sre, github, actions, templates, probot'
+  topics: 'npm, github, actions, templates, probot'
   description: 'GitHub Automation > actions / templates / probot configurations > automated with GitHub actions'
   homepage: 'https://github.com/npm'
   default_branch: master
@@ -36,7 +36,7 @@ branches:
         users: []
 
 teams:
-  - { name: 'sre',          permission: 'admin' }
+  - { name: 'cli-team',     permission: 'admin' }
   - { name: 'robot-write',  permission: 'admin' }
   - { name: 'robot',        permission: 'pull'  }
   - { name: 'employees',    permission: 'pull'  }
