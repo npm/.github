@@ -30,7 +30,6 @@ branches:
           users: []
       required_status_checks:
         strict: true
-        contexts: ['default']
       restrictions:
         teams: []
         users: []
