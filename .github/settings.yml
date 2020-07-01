@@ -39,7 +39,7 @@ teams:
   - { name: 'robot-write',  permission: 'admin' }
   - { name: 'robot',        permission: 'pull'  }
   - { name: 'employees',    permission: 'pull'  }
-  - { name: 'eng',          permission: 'push'  }
+  - { name: 'eng',          permission: 'admin'  }
 
 labels:
 
