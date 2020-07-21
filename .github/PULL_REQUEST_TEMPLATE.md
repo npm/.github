@@ -1,5 +1,5 @@
-## What / Why
-<!-- Describe the request in detail -->
+<!-- What / Why -->
+<!-- Describe the request in detail. What it does and why it's being changed. -->
 
 
 ## References
