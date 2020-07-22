@@ -8,6 +8,7 @@
 
 * https://github.com/probot/settings#usage
 * https://github.com/probot/probot-config#recipes
+* https://docs.github.com/en/actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 * https://help.github.com/en/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses
 * https://semantic-release.gitbook.io/semantic-release/usage/configuration#extends
 
