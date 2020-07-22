@@ -1,6 +1,6 @@
 {
   "name": "npm deploy workflow",
   "description": "npm deploy workflow template.",
-  "iconName": "npm-deploy",
-  "categories": ["Automation", "SDLC"]
+  "iconName": "node-package-transparent",
+  "categories": ["Automation", "SDLC", "Javascript"]
 }
