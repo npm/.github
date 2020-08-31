@@ -2,23 +2,36 @@ name: deploy
 on:
   push:
     branches:
-      - deploy-**
+      - deploy-staging
+      - deploy-production
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+    
+    - name: Set staging variables
+      run: |
+        echo "::set-env name=ENVIRONMENT_URL::https://your_service.npm.red"
+      if: github.ref == 'refs/heads/deploy-staging'
+
+    - name: Set production variables
+      run: |
+        echo "::set-env name=ENVIRONMENT_URL::https://your_service.internal.npmjs.com"
+      if: github.ref == 'refs/heads/deploy-production'
 
     - name: create a deployment
       uses: npm/action-deploy@v2
       with:
         type: create
         token: ${{github.token}}
-        logs: https://github.slack.com/archives/C02UYAZ5P
-        environment_url: https://npmjs.com (change to your application)
+        logs: https://github.slack.com/archives/C02UYAZ5P # npm-deploys channel
+        environment_url: ${{env.ENVIRONMENT_URL}}
         job_status: ${{job.status}} # keep that to track status of the current job, when deployment is completed
+        slack_token: ${{secrets.NPM_ROBOT_SLACK_TOKEN}}
+        slack_channel: npm-ops
 
     # change to actual deployment steps
     - name: placeholder for actual deployment
-    run: sleep 10s
+      run: sleep 10s
