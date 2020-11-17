@@ -13,12 +13,12 @@ jobs:
     
     - name: Set staging variables
       run: |
-        echo "::set-env name=ENVIRONMENT_URL::https://your_service.npm.red"
+        echo "ENVIRONMENT_URL=https://your_service.npm.red" >> $GITHUB_ENV
       if: github.ref == 'refs/heads/deploy-staging'
 
     - name: Set production variables
       run: |
-        echo "::set-env name=ENVIRONMENT_URL::https://your_service.internal.npmjs.com"
+        echo "ENVIRONMENT_URL=https://your_service.internal.npmjs.com" >> $GITHUB_ENV
       if: github.ref == 'refs/heads/deploy-production'
 
     - name: create a deployment
