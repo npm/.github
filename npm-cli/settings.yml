@@ -17,19 +17,9 @@ labels:
     description: 'a "backlogged" item that will be tracked in a Project Board'
   }
   - {
-    name: 'Beta',
-    color: '6e65bf',
-    description: 'issues found in a beta release'
-  }
-  - {
     name: 'Bug',
     color: 'E31919',
     description: 'thing that needs fixing'
-  }
-  - {
-    name: 'Community',
-    color: 'ededed',
-    description: 'old issues that were pulled in from npm.community'
   }
   - {
     name: 'Duplicate',
@@ -40,11 +30,6 @@ labels:
     name: 'Enhancement',
     color: '0E8A16',
     description: 'new feature or improvement'
-  }
-  - {
-    name: 'Epic',
-    color: 'F8E71C',
-    description: 'a larger scope of work that will be tracked in a Project Board'
   }
   - {
     name: 'Good First Issue',
@@ -60,11 +45,6 @@ labels:
     name: 'Linux',
     color: 'fef2c0',
     description: ''
-  }
-  - {
-    name: 'Meeting',
-    color: 'F5A623',
-    description: 'meeting agendas'
   }
   - {
     name: 'Needs Discussion',
@@ -110,36 +90,6 @@ labels:
     name: 'Question',
     color: 'ededed',
     description: 'further information is requested'
-  }
-  - {
-    name: 'Ratified',
-    color: 'ededed',
-    description: 'this RFC is ready for implementation'
-  }
-  - {
-    name: 'Registry',
-    color: 'ededed',
-    description: 'specific to registry implementation'
-  }
-  - {
-    name: 'Release 6.x',
-    color: '000000',
-    description: 'work is associated with a specific npm 6 release'
-  }
-  - {
-    name: 'Release 7.x',
-    color: '000000',
-    description: 'work is associated with a specific npm 7 release'
-  }
-  - {
-    name: 'Release 8.x',
-    color: '000000',
-    description: 'work is associated with a specific npm 8 release'
-  }
-  - {
-    name: 'Release-Next',
-    color: 'fbca04',
-    description: 'These items should be addressed in the next release'
   }
   - {
     name: 'Security',
