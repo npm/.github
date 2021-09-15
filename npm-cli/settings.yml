@@ -1,0 +1,123 @@
+# These are the settings that npm-cli repos should inherit, it contains the base settings they should have but can extend if needed
+
+labels:
+  - {
+    name: ':gem: Free Internet Points :gem:',
+    color: 'fbca04',
+    description: 'similar to "Good First issue" - although more impactful'
+  }
+  - {
+    name: 'Agenda',
+    color: 'F5A623',
+    description: 'will be discussed at the Open RFC call'
+  }
+  - {
+    name: 'Backlog',
+    color: '000000',
+    description: 'a "backlogged" item that will be tracked in a Project Board'
+  }
+  - {
+    name: 'Bug',
+    color: 'E31919',
+    description: 'thing that needs fixing'
+  }
+  - {
+    name: 'Duplicate',
+    color: '000000',
+    description: 'duplicate of another, existing issue'
+  }
+  - {
+    name: 'Enhancement',
+    color: '0E8A16',
+    description: 'new feature or improvement'
+  }
+  - {
+    name: 'Good First Issue',
+    color: '0E8A16',
+    description: 'good issue or PR for newcomers'
+  }
+  - {
+    name: 'In Progress',
+    color: '105DE0',
+    description: 'not ready to merge yet'
+  }
+  - {
+    name: 'Linux',
+    color: 'fef2c0',
+    description: ''
+  }
+  - {
+    name: 'Needs Discussion',
+    color: 'D0021B',
+    description: 'is pending a discussion'
+  }
+  - {
+    name: 'Needs Documentation',
+    color: 'D0021B',
+    description: 'pull request requires docs before merging'
+  }
+  - {
+    name: 'Needs Review',
+    color: 'D0021B',
+    description: 'needs further investigation/review'
+  }
+  - {
+    name: 'Needs Tests',
+    color: 'D0021B',
+    description: 'requires tests before merging'
+  }
+  - {
+    name: 'Needs Triage',
+    color: '1664ff',
+    description: 'needs an initial review'
+  }
+  - {
+    name: 'Priority 0',
+    color: 'E54572',
+    description: 'will get attention right away'
+  }
+  - {
+    name: 'Priority 1',
+    color: 'BA20AB',
+    description: 'high priority issue'
+  }
+  - {
+    name: 'Priority 2',
+    color: '412379',
+    description: "will get attention when we're freed up"
+  }
+  - {
+    name: 'Question',
+    color: 'ededed',
+    description: 'further information is requested'
+  }
+  - {
+    name: 'Security',
+    color: 'D0021B',
+    description: 'security related'
+  }
+  - {
+    name: 'semver:major',
+    color: 'D93F0B',
+    description: 'backwards-incompatible breaking changes'
+  }
+  - {
+    name: 'semver:minor',
+    color: '1D76DB',
+    description: 'new backwards-compatible feature'
+  }
+  - {
+    name: 'semver:patch',
+    color: '0E8A16',
+    description: 'semver patch level for changes'
+  }
+  - {
+    name: 'Windows',
+    color: '1d76db',
+    description: 'is Windows-specific'
+  }
+  - {
+    name: 'Wontfix',
+    color: '000000',
+    description: 'this will not be worked on'
+  }
