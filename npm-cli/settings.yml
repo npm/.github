@@ -1,5 +1,11 @@
 # These are the settings that npm-cli repos should inherit, it contains the base settings they should have but can extend if needed
 
+branches:
+  - name: *
+    protection:
+      required_pull_request_views:
+        required_approving_review_count: 1
+
 labels:
   - {
     name: ':gem: Free Internet Points :gem:',
