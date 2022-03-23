@@ -14,11 +14,13 @@ jobs:
     - name: Set staging variables
       run: |
         echo "ENVIRONMENT_URL=https://your_service.npm.red" >> $GITHUB_ENV
+        echo "DEPLOYMENT_CONFIDENCE_URL=${{ secrets.DATADOG_STAGING_DEPLOYMENT_DASHBOARD_URL }}" >> $GITHUB_ENV
       if: github.ref == 'refs/heads/deploy-staging'
 
     - name: Set production variables
       run: |
         echo "ENVIRONMENT_URL=https://your_service.internal.npmjs.com" >> $GITHUB_ENV
+        echo "DEPLOYMENT_CONFIDENCE_URL=${{ secrets.DATADOG_PRODUCTION_DEPLOYMENT_DASHBOARD_URL }}" >> $GITHUB_ENV
       if: github.ref == 'refs/heads/deploy-production'
 
     - name: create a deployment
@@ -28,6 +30,7 @@ jobs:
         token: ${{github.token}}
         logs: https://github.slack.com/archives/C02UYAZ5P # npm-deploys channel
         environment_url: ${{env.ENVIRONMENT_URL}}
+        deployment_confidence_url: ${{env.DEPLOYMENT_CONFIDENCE_URL}}
         job_status: ${{job.status}} # keep that to track status of the current job, when deployment is completed
         slack_token: ${{secrets.NPM_ROBOT_SLACK_TOKEN}}
         slack_channel: npm-ops
