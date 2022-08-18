@@ -1,0 +1,5 @@
+{
+  "name": "Publish Docker image",
+  "description": "Publishes Docker image to your org's GitHub's Container Registry",
+  "filePatterns": ["^Dockerfile"]
+}
