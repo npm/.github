@@ -9,6 +9,10 @@ on:
       image_name:
         required: true
         type: string
+      file:
+        required: false
+        type: string
+        default: ./Dockerfile
     secrets:
       gh_token:
         required: true
@@ -43,6 +47,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
+          file: ${{ inputs.file }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
