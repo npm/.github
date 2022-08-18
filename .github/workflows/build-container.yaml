@@ -9,6 +9,11 @@ on:
       image_name:
         required: true
         type: string
+    secrets:
+      gh_token:
+        required: true
+      gh_packages_token:
+        required: true
 
 jobs:
   build-and-push-image:
@@ -26,7 +31,7 @@ jobs:
         with:
           registry: ${{ inputs.registry }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.gh_token }}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -42,4 +47,4 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
-            GH_PACKAGES_TOKEN=${{ secrets.GH_PACKAGES_READWRITE}}
+            GH_PACKAGES_TOKEN=${{ secrets.gh_packages_token }}
