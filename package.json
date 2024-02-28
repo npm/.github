@@ -4,12 +4,12 @@
   "name": "@npmcorp/.github",
   "private": false,
   "dependencies": {
-    "@semantic-release/commit-analyzer": "11.1.0",
-    "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "9.2.6",
+    "@semantic-release/commit-analyzer": "^11.1.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.6",
     "@semantic-release/npm": "^11.0.2",
-    "@semantic-release/release-notes-generator": "12.1.0",
-    "semantic-release": "22.0.12"
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "semantic-release": "^22.0.12"
   },
   "release": {
     "extends": "./npm.js"
