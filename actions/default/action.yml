@@ -1,6 +1,6 @@
 ---
 #####
-# https://github.com/actions/toolkit/blob/master/docs/container-action.md#define-metadata
+# https://github.com/actions/toolkit/blob/main/docs/container-action.md#define-metadata
 name: default
 description: default
 author: 'npm, Inc.'
